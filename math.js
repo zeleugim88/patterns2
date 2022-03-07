@@ -6,15 +6,17 @@ class Math1 {
     static mult(a, b) { return a * b }
 }
 
+
+//middleware
 class Math2 {
     static square (a,b,next) {
-        console.log(`Square of ${a} is ${a*a}`);
-        console.log(`Square of ${b} is ${b*b}`);
+        console.log(`Square of ${a} is ${a**2}`);
+        console.log(`Square of ${b} is ${b**2}`);
         next();
     }
     static cube (x,y,next) {
-        console.log(`Cube of ${a} is ${a*a*a}`);
-        console.log(`Cube of ${b} is ${b*b*b}`);
+        console.log(`Cube of ${a} is ${a**3}`);
+        console.log(`Cube of ${b} is ${b**3}`);
         next();
     }
     static div (x,y,next) {

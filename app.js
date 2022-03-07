@@ -6,3 +6,7 @@ const Middleware = require('./middleware.js')
 const app = new Middleware(); 
 
 console.log(`JSON original values :  ${data.a}, ${data.b}`);
+
+Middleware.use((next) => console.log(next))
+/* Middleware.use(Math2.cube(next))
+Middleware.use(Math2.div(next)) */

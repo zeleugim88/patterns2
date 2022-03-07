@@ -1,7 +1,22 @@
 
+class Middleware {
+    constructor() {
+        this.middlewares = []
+    }
 
-//square
+    static use(callback) { //add middelware to array
+        this.middlewares.push(callback)
+    }
 
-//cube
+    static execute(data, done) { //loop
+        this.middlewares.reduceRight((done, next) => () => next(data, done), done)
+            (data);
+    }
 
-//division
+    static run(data) {
+        this.execute(data, done => console.log(data));
+    }
+    
+}
+
+module.exports = Middleware;
