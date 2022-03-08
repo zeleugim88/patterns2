@@ -12,18 +12,18 @@ class Math2 {
     static square (a,b,next) {
         console.log(`Square of ${a} is ${a**2}`);
         console.log(`Square of ${b} is ${b**2}`);
-        next();
+        //next();
     }
-    static cube (x,y,next) {
+    static cube (a,b,next) {
         console.log(`Cube of ${a} is ${a**3}`);
         console.log(`Cube of ${b} is ${b**3}`);
-        next();
+        //next();
     }
-    static div (x,y,next) {
+    static div (a,b,next) {
         console.log(`${a/b} is the result of dividing ${a} by ${b}`);
-        next();
+        //next();
     }
 }
 
-//console.log(Math1.sum(data.a,data.b))
+console.log(Math2.cube(data.a,data.b))
 module.exports = {Math1, Math2};
