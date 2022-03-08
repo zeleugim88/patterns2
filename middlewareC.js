@@ -6,20 +6,24 @@ class Middleware {
     }
 
     //2) function to add new middleware to array
-    static use = fn => this.middlewares.push(fn);
+    use = fn => this.middlewares.push(fn);
 
     //3) function to run middleware from star to end recursively
-    static runMiddleware = i => { 
+    runMiddleware = i => { 
         const count = this.middlewares.length;
+        console.log("longitud middleware:" + count)
         if (i < count)
         this.middlewares[i].call(null, () => runMiddleware(i+1))
     }
 
     //4) get method to call middleware
-    static get = () => {
-        runMiddlewares(0)
+    get = () => {
+        this.runMiddleware(0)
       }
     
 }
 
 module.exports = Middleware;
+
+
+
