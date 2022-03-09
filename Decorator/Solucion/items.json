@@ -1,0 +1,36 @@
+
+[
+    {
+        "name": "Swiss Cheese",
+        "price": 10,
+        "currency": "CHF"
+    },
+    {
+        "name": "Peanut Butter",
+        "price": 4,
+        "currency": "USD"
+    },
+    {
+        "name": "Kimono Dress",
+        "price": 120,
+        "currency": "JPY"
+    },
+
+    {
+        "name": "Pork Pie",
+        "price": 2,
+        "currency": "GBP"
+    },
+
+    {
+        "name": "Gold ingot",
+        "price": 3000,
+        "currency": "CAD"
+    },
+    {
+        "name": "10 Dumplings",
+        "price": 15,
+        "currency": "CNY"
+    }
+]
+
