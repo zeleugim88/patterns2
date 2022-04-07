@@ -23,6 +23,6 @@ md.use((next) => {
     next()
 });
 
-md.get(math.sum);
+md.get(math.sum); 
 md.get(math.subs);
 md.get(math.mult); 

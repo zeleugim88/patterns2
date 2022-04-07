@@ -1,27 +1,29 @@
-//- El middleware debe aplicarse sobre la clase que guarda las funciones, de modo que se las coma 
-//y las "extienda" para poder llamarlas como md.suma() en lugar de hacer md.get(math.suma)
-
-const num = require('./num.json')
 class Math1 {
-
-    sum() {console.log(`Sum of ${num.x} and ${num.y} is ${num.x + num.y}!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!`)};
-    subs() { console.log(`Substraction of ${num.x} and ${num.y} is ${num.x - num.y}!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!`)  }
-    mult() { console.log(`Multiplication of ${num.x} and ${num.y} is ${num.x * num.y}!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!`) }
-}  
+    add({x, y}) { console.log(`5) After ALL middlewares - SUM of ${x} and ${y} : ${x + y}`)};
+    subtract({x, y}) { console.log(`5) After ALL middlewares - SUBSTRACTION of ${x} and ${y} : ${x - y}`)}
+    multiply({x, y}) { console.log(`5) After ALL middlewares - MULTIPLICATION of ${x} and ${y} : ${x * y}`)}
+}
 
 class Math2 {
-    static square = (next) =>{
-        console.log(`Middleware1: Square of ${num.x} is ${num.x**2}`); 
-        console.log(`Middleware1: Square of ${num.y} is ${num.y**2}`);
+    static square(req, next) {
+        console.log(`1) Original numbers: ${req.x} and ${req.y}`)
+        req.x = req.x ** 2;
+        req.y = req.y ** 2;
+        console.log(`2) After Middleware Square: ${req.x} and ${req.y}`)
+        next();
+    }
+
+    static cube(req, next) {
+            req.x = req.x ** 3;
+            req.y = req.y ** 3;
+            console.log(`3) After Middleware Cube: ${req.x} and ${req.y}`)
         next()
     }
-    static cube = (next) =>{
-        console.log(`Middleware2: Cube of ${num.x} is ${num.x**3}`);
-        console.log(`Middleware2: Cube of ${num.y} is ${num.y**3}`);
-        next()
-    }
-    static div = (next) =>{
-        console.log(`Middleware3: ${(num.x/num.y).toFixed(2)} is the result of dividing ${num.x} by ${num.y}`);
+
+    static div(req, next) {
+            req.x = Math.round(req.x / 2);
+            req.y = Math.round(req.y / 2);
+            console.log(`4) After Middleware Division by 2: ${req.x} and ${req.y}`)
         next() 
     }
 }
